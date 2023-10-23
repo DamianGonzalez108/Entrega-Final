@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Mercado</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <header>
+        <h1>Mini Mercado</h1>
+    </header>
+    <!--Lista de productos-->
+    <section class="productos">
+
+
+
+    </section>
+    <!-- bloque para más productos -->
+    <section class="section-carrito">
+        <h2>Carrito de compras</h2>
+        <div class="lista-carrito">
+            <!-- Los productos seleccionados se agregarán aquí -->
+        </div>
+        <div>Total: <span id="total">$0</span></div>
+        <div id="btnPagar"></div>
+        <div id="formmularioPagar"></div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('9kyOTkmani7NXlOF9')
+    </script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+
+/* Reset de estilos para quitar márgenes y rellenos predeterminados */
+body, h1, h2, h3, p, ul, li, button {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo del encabezado */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Estilo de las secciones */
+section {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Estilo de los productos */
+.producto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.producto img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* Estilo de los botones */
+button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo de la lista de carrito */
+.lista-carrito {
+    list-style-type: none;
+}
+
+.lista-carrito li {
+    margin-bottom: 5px;
+}
+
+/* Estilo del formulario para agregar productos */
+.agregar-producto label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Estilo del total */
+#total {
+    font-weight: bold;
+}
+
+/* Display de input Productos*/
+.inputProductos{
+    display: none;
+}
