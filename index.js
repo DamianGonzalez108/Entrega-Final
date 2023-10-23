@@ -10,6 +10,7 @@ const total = document.querySelector("#total");
 const btnPagarCarrito = document.querySelector("#btnPagar");
 const formPagar = document.querySelector("#formmularioPagar");
 
+//PRODUCTOS
 function tarjetas() {
   productos.innerHTML = "";
 
@@ -25,6 +26,12 @@ function tarjetas() {
         `;
   });
 }
+function buscarProducto(id, array) {
+  const producto = array.find((producto) => producto.id == id);
+  return producto;
+}
+
+//EVENTOS BOTONES
 document.addEventListener("click", (e) => {
   const btnAgregar = document.querySelectorAll(".agregar");
   const btnEliminar = document.querySelectorAll(".btnEliminar");
@@ -45,17 +52,13 @@ document.addEventListener("click", (e) => {
   });
 });
 
+//CARRITO
 function totalCarrito() {
   const totalFinal = carrito.reduce(
     (acc, producto) => acc + producto.precio * producto.cantidad,
     0
   );
   total.innerHTML = totalFinal;
-}
-
-function buscarProducto(id, array) {
-  const producto = array.find((producto) => producto.id == id);
-  return producto;
 }
 
 function agregarAlCarrito(producto) {
@@ -167,16 +170,19 @@ function rederizarCarrito() {
   });
 }
 
+//DOM
 document.addEventListener("DOMContentLoaded", async () => {
   await fetchAsync();
   tarjetas();
   const carritoParse = JSON.parse(localStorage.getItem("carrito")) || [];
-  if (carritoParse.length > 0) {
-    carritoParse.forEach((producto) => {
-      carrito.push(producto);
-    });
-    rederizarCarrito();
-    totalCarrito();
+  if (carritoParse != []) {
+    if (carritoParse.length > 0) {
+      carritoParse.forEach((producto) => {
+        carrito.push(producto);
+        rederizarCarrito();
+        totalCarrito();
+      });
+    }
   } else {
     Toastify({
       text: "No hay productos en el carrito",
@@ -193,6 +199,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+//PROMISE PAGO
 function procesandoPago() {
   const validarPago = Math.random() < 0.5;
   return new Promise((resolve, reject) => {
@@ -209,6 +216,7 @@ function procesandoPago() {
     }, 5000);
   });
 }
+//FETCH - Async Await
 async function fetchAsync() {
   const resp = await fetch(
     "https://651e240844e393af2d5a8b45.mockapi.io/losProductos"
